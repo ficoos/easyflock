@@ -1,9 +1,8 @@
-/* A library for more intuitive flocking
- *
- * flock(2) command is implemented per file table entry.
- * This is not as intuitive and problematic trying to flock similar files from
- * multiple threads.
- */
+// A library for more intuitive flocking
+//
+// flock(2) command is implemented per file table entry.
+// This is not as intuitive and problematic trying to flock similar files from
+// multiple threads.
 package easyflock
 
 import (
