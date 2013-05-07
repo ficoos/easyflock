@@ -27,7 +27,7 @@ func (s *FlockTests) TestExclusive(c *C) {
 	l, err := NewFlock(1)
 	c.Assert(err, IsNil)
 	c.Assert(l.TryLock(), Equals, true)
-	defer l.Unock()
+	defer l.Unlock()
 	c.Assert(l.TryLock(), Equals, false)
 	c.Assert(l.TryRLock(), Equals, false)
 }
@@ -36,12 +36,12 @@ func (s *FlockTests) TestShared(c *C) {
 	l, err := NewFlock(1)
 	c.Assert(err, IsNil)
 	c.Assert(l.TryRLock(), Equals, true)
-	defer l.Unock()
+	defer l.Unlock()
 	c.Assert(l.TryRLock(), Equals, true)
-	defer l.Unock()
+	defer l.Unlock()
 	c.Assert(l.TryLock(), Equals, false)
 	c.Assert(l.TryRLock(), Equals, true)
-	defer l.Unock()
+	defer l.Unlock()
 }
 
 func (s *FlockTests) TestBoth(c *C) {
@@ -73,6 +73,6 @@ func (s *FlockTests) TestSymlinks(c *C) {
 	c.Assert(err, IsNil)
 
 	c.Assert(la.TryLock(), Equals, true)
-	defer la.Unock()
+	defer la.Unlock()
 	c.Assert(lb.TryLock(), Equals, false)
 }

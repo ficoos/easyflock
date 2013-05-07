@@ -79,7 +79,7 @@ func (f *_Flock) TryRLock() bool {
 	return true
 }
 
-func (f *_Flock) Unock() {
+func (f *_Flock) Unlock() {
 	f.mtx.Lock()
 	defer f.mtx.Unlock()
 	switch f.state {
